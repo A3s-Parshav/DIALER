@@ -22,14 +22,14 @@ class AdvancedBottomNav extends StatelessWidget {
           child: Container(
             height: 70, // Slightly shorter for a more compact look
             decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 240, 238, 238).withOpacity(0.85),
+              color: const Color.fromARGB(255, 255, 255, 255).withOpacity(0.85),
               borderRadius: BorderRadius.circular(30),
               border: Border.all(
                 color: const Color.fromARGB(
                   255,
-                  111,
-                  109,
-                  109,
+                  214,
+                  209,
+                  209,
                 ).withOpacity(0.3),
                 width: 1.5,
               ),
@@ -59,7 +59,7 @@ class AdvancedBottomNav extends StatelessWidget {
                   onTap: onTap,
                 ),
                 _NavItem(
-                  icon: Icons.grid_view_rounded,
+                  icon: Icons.dialpad_sharp,
                   label: 'Keypad',
                   index: 1,
                   isSelected: currentIndex == 1,

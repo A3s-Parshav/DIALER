@@ -40,24 +40,59 @@ class _HomePageState extends State<HomePage> {
         actions: [
           if (_index == 0)
             IconButton(
-              icon: const Icon(Icons.add, color: Colors.white, size: 26),
+              icon: const Icon(Icons.add, color: Colors.white, size: 33),
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(builder: (_) => const AddContactPage()),
               ),
             ),
-          // ✅ Navigation to the NEW page (Recordpage1)
-          if (_index == 2)
-            IconButton(
-              icon: const Icon(Icons.add, color: Colors.white, size: 26),
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => const Recordpage1()), 
-              ),
+        
+          
+    if (_index == 1)
+            PopupMenuButton<String>(
+               color: Colors.white,
+              icon: const Icon(Icons.more_vert_rounded, color: Colors.white, size: 33),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              onSelected: (String value) {
+                switch (value) {
+                  case 'recording':
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => const Recordpage1()),
+                    );
+                    break;
+                  case 'others':
+                    
+                    print("Others clicked");
+                    break;
+                }
+              },
+              itemBuilder: (BuildContext context) => [
+                const PopupMenuItem<String>(
+                 
+                  value: 'recording',
+                  child: Row(
+                    children: [
+                      Icon(Icons.mic, color: Colors.blueAccent, size: 20),
+                      SizedBox(width: 12),
+                      Text("Call Record"),
+                    ],
+                  ),
+                ),
+                const PopupMenuItem<String>(
+                  value: 'others',
+                  child: Row(
+                    children: [
+                      Icon(Icons.more_horiz, color: Colors.grey, size: 20),
+                      SizedBox(width: 12),
+                      Text("Others"),
+                    ],
+                  ),
+                ),
+              ],
             ),
         ],
       ),
-  
       body: IndexedStack(
         index: _index,
         children: _pages,
@@ -69,7 +104,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
      
 
 class HomeContent extends StatefulWidget {
@@ -144,7 +178,7 @@ class _HomeContentState extends State<HomeContent> {
                 ),
               ),
               
-              // ✅ Updated "Add to contacts" to actually navigate
+
               if (_controller.text.length >= 10)
                 GestureDetector(
                   onTap: () {

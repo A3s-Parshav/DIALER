@@ -54,21 +54,21 @@ class _ContactPageState extends State<ContactPage> {
     return Scaffold(
       backgroundColor: Colors.white,
 
-      // 🔹 Simple White AppBar (no title)
+      
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        toolbarHeight: 10, // just top spacing
+        toolbarHeight: 10, 
       ),
 
       body: Column(
         children: [
-          // 🔹 SEARCH + ADD ROW
+          
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
             child: Row(
               children: [
-                // 🔍 Search Bar
+               
                 Expanded(
                   child: Container(
                     height: 44,
@@ -90,24 +90,12 @@ class _ContactPageState extends State<ContactPage> {
 
                 const SizedBox(width: 12),
 
-                // ➕ Add Contact Button
-                // GestureDetector(
-                //   onTap: _addContact,
-                //   child: Container(
-                //     height: 44,
-                //     width: 44,
-                //     decoration: BoxDecoration(
-                //       color: const Color(0xFF007AFF),
-                //       borderRadius: BorderRadius.circular(12),
-                //     ),
-                //     child: const Icon(Icons.add, color: Colors.white, size: 24),
-                //   ),
-                // ),
+               
               ],
             ),
           ),
 
-          // 🔹 CONTACT LIST
+          
           Expanded(
             child: ListView.builder(
               controller: _scrollController,
